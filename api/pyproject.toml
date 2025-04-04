@@ -1,3 +1,30 @@
+[project]
+name = "api"
+version = "0.1.0"
+description = "See README"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi==0.104.1", # scraper
+    "httpx==0.25.0", # scraper
+    "playwright>=1.51.0", # scraper
+    "py-pushover-client==1.0.0.dev2", # app
+    "python-dotenv==1.0.0", # scraper
+    "selectolax==0.3.16", # scraper
+    "sqlalchemy==2.0.23", # app
+    "textdistance==4.6.0", # scraper
+    "uvicorn==0.24.0.post1", # scraper
+]
+
+[dependency-groups]
+dev = [
+    "mypy==1.6.1",
+    "pytest==7.4.2",
+    "pytest-cov==4.1.0",
+    "pytest-mock==3.12.0",
+    "ruff==0.1.5",
+]
+
 [tool.ruff]
 cache-dir = "~/.cache/ruff"
 
@@ -67,8 +94,6 @@ exclude_also = [
     # defensive assertions:
     "raise NotImplementedError",
 ]
-
-
 
 [tool.mypy]
 cache_dir = "~/.cache/mypy"

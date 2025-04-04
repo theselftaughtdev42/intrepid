@@ -1,11 +1,11 @@
 install:
 	mkdir -p logs
-	pip install -r requirements.txt
-	playwright install
-	playwright install-deps
+	uv sync
+	uv run playwright install
+	uv run playwright install-deps
 
-dev-install: install
-	pip install -r requirements-dev.txt
+deploy:
+	TODO
 
 clean:
 	find . -name '*.pyc' -delete
@@ -18,15 +18,15 @@ deep-clean: clean
 	rm -rf intrepid.db
 
 test-cov:
-	pytest --cov --cov-report=html .
+	uv run pytest --cov --cov-report=html .
 
 QA:
-	pytest .
-	mypy .
-	ruff check .
+	uv run pytest .
+	uv run mypy .
+	uv run ruff check .
 
 api:
-	uvicorn run_api:app --reload
+	uv run uvicorn run_api:app --reload
 
 scraper:
-	python run_scraper.py
+	uv run run_scraper.py

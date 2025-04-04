@@ -8,10 +8,9 @@ NOTE: This project is intended to be deployed on a RaspberryPi and thus this REA
 ## setup
 1. sign up to https://pushover.net and generate an API TOKEN and a USER KEY.
 1. clone repo and `cd` into it
-1. `python -m venv venv`
-1. `source venv/bin/activate`
+1. `uv sync`
 1. rename `.env-example` to `.env` and populate the variables with your API TOKEN and USER KEY.
-1. `make install` (or `make dev-install` for local development)
+1. `make install`
 
 ### deploy locally
 1. to execute the scraper use the command `make scraper`
@@ -35,17 +34,17 @@ NOTE: This project is intended to be deployed on a RaspberryPi and thus this REA
 
 ## run tests
 1. open a terminal and ensure you are in the project's root dir
-1. `pytest .`
+1. `uv run pytest .`
 
 ## run test coverage
 1. open a terminal and ensure you are in the project's root dir
-1. `pytest --cov .` will produce an overview report in the cli
+1. `uv run pytest --cov .` will produce an overview report in the cli
 1. `make test-cov` will produce html reports in a `htmlcov` directory
 
 ## code quality checks
 1. open a terminal and ensure you are in the project's root dir
-1. `ruff check .` will run the code linter
-1. `mypy .` will run the type checker
+1. `uv run ruff check .` will run the code linter
+1. `uv run mypy .` will run the type checker
 
 ## remove cache files
 1. `make clean`
